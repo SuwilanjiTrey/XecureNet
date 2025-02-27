@@ -1,0 +1,369 @@
+@font-face {
+          font-family: 'CyberFont';
+          src: url('./fonts/Centauri.ttf') format('truetype');
+        }
+
+        :root {
+          --glow-color: #60a5fa;
+          --glow-spread-color: rgba(96, 165, 250, 0.2);
+          --enhanced-glow-color: rgba(96, 165, 250, 0.5);
+          --btn-color: rgb(37, 99, 235);
+        }
+
+        .landing-page {
+          min-height: 98vh;
+          
+          color: white;
+          
+          position: relative;
+          //overflow: hidden;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('./assets/1.gif') center/cover;
+  opacity: 1;  /* Adjust this value to control GIF visibility */
+  z-index: -1;
+
+        }
+
+        .landing-page::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 20%),
+            radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 20%);
+          pointer-events: none;
+        }
+
+        nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.5rem;
+          max-width: 1200px;
+          margin: 0 auto;
+          background: rgba(30, 41, 59, 0.8);
+          border: 1px solid rgba(96, 165, 250, 0.2);
+          box-shadow: 0 0 10px var(--glow-color),
+                      inset 0 0 10px var(--glow-color);
+          backdrop-filter: blur(10px);
+          border-radius: 100px;
+	  
+        }
+
+        h1, h2, h3, .logo {
+          font-family: 'CyberFont', sans-serif;
+        }
+
+       /* p {
+          font-family: 'CyberFont', sans-serif;
+          font-weight: 300;
+        }*/
+
+        .logo {
+          font-size: 1.5rem;
+          font-weight: bold;
+          position: relative;
+        }
+
+        .glitch {
+          position: relative;
+          animation: glitch 1s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .glitch::before {
+          left: 2px;
+          text-shadow: -2px 0 #ff00c1;
+          clip: rect(44px, 450px, 56px, 0);
+          animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+          left: -2px;
+          text-shadow: -2px 0 #00fff9;
+          clip: rect(44px, 450px, 56px, 0);
+          animation: glitch-anim-2 5s infinite linear alternate-reverse;
+        }
+
+.feature-grid{
+display: flex;
+}
+
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+        }
+
+        .nav-links a {
+          color: white;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          padding: 0.5rem 1rem;
+        }
+
+        .nav-links a::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--glow-color);
+          transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::before {
+          width: 100%;
+        }
+
+        .nav-links a:hover {
+          color: var(--glow-color);
+          text-shadow: 0 0 8px var(--glow-color);
+        }
+
+.hero {
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.main-module {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('./assets/1.gif') center/cover;
+  opacity: 1;  /* Adjust this value to control GIF visibility */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Add a gradient overlay to help text readability */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background: linear-gradient(
+    45deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(26, 35, 126, 0.8)
+  );*/
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure hero content stays above the background */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+        .cyber-glitch {
+          font-size: 3.75rem;
+          font-weight: bold;
+          margin-bottom: 1.5rem;
+          background: linear-gradient(to right, #60a5fa, #a855f7);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          position: relative;
+          animation: cyberpunk 2s ease-in-out infinite;
+        }
+
+        @keyframes cyberpunk {
+          0%, 100% {
+            text-shadow: 0 0 10px #60a5fa,
+                         0 0 20px #60a5fa,
+                         0 0 40px #60a5fa;
+          }
+          50% {
+            text-shadow: 0 0 20px #a855f7,
+                         0 0 40px #a855f7,
+                         0 0 60px #a855f7;
+          }
+        }
+
+        .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.6s ease;
+        }
+
+        .fade-in.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .cta-button {
+          background: none;
+          border: 0.2rem solid var(--glow-color);
+          padding: 1em 3em;
+          color: var(--glow-color);
+          font-size: 15px;
+          font-weight: bold;
+          background-color: var(--btn-color);
+          border-radius: 1em;
+          outline: none;
+          box-shadow: 0 0 1em 0.25em var(--glow-color),
+                     0 0 4em 1em var(--glow-spread-color),
+                     inset 0 0 0.75em 0.25em var(--glow-color);
+          text-shadow: 0 0 0.5em var(--glow-color);
+          position: relative;
+          transition: all 0.3s;
+          cursor: pointer;
+        }
+
+        .cta-button::after {
+          pointer-events: none;
+          content: "";
+          position: absolute;
+          top: 120%;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: var(--glow-spread-color);
+          filter: blur(2em);
+          opacity: 0.7;
+          transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+        }
+
+        .cta-button:hover {
+          color: black;
+          background-color: var(--glow-color);
+          box-shadow: 0 0 1em 0.25em var(--glow-color),
+                     0 0 4em 2em var(--glow-spread-color),
+                     inset 0 0 0.75em 0.25em var(--glow-color);
+        }
+
+        .feature-card {
+          padding: 1.5rem;
+          background: rgba(30, 41, 59, 0.8);
+          border: 1px solid rgba(96, 165, 250, 0.2);
+          border-radius: 0.75rem;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .feature-card:hover {
+          transform: perspective(1000px) rotateX(10deg);
+          border-color: var(--glow-color);
+          box-shadow: 0 0 20px var(--glow-color);
+        }
+
+.stats {
+          padding: 5rem 0;
+          text-align: center;
+	  background: #1e293b;
+        }
+
+        .stat-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 2rem;
+        }
+
+        .stat-card .number {
+          font-size: 2.25rem;
+          font-weight: bold;
+          color: #60a5fa;
+          margin-bottom: 0.5rem;
+        }
+
+        .stat-card .text {
+          color: #94a3b8;
+        }
+
+
+
+        @keyframes glitch-anim {
+          0% {
+            clip: rect(31px, 9999px, 94px, 0);
+          }
+          4.166666666666666% {
+            clip: rect(91px, 9999px, 100px, 0);
+          }
+          8.333333333333332% {
+            clip: rect(85px, 9999px, 41px, 0);
+          }
+          12.5% {
+            clip: rect(54px, 9999px, 93px, 0);
+          }
+          /* Add more keyframes as needed */
+        }
+
+        @keyframes glitch-anim-2 {
+          0% {
+            clip: rect(65px, 9999px, 119px, 0);
+          }
+          4.166666666666666% {
+            clip: rect(79px, 9999px, 61px, 0);
+          }
+          8.333333333333332% {
+            clip: rect(76px, 9999px, 84px, 0);
+          }
+          12.5% {
+            clip: rect(80px, 9999px, 92px, 0);
+          }
+          /* Add more keyframes as needed */
+        }
+        footer {
+          background-color: #1e293b;
+          padding: 3rem 0;
+          text-align: center;
+        }
+
+        .social-links {
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .social-link {
+          padding: 0.5rem;
+          border-radius: 9999px;
+          transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+          background-color: #334155;
+        }
+
+        footer p {
+          color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+          .hero h1 {
+            font-size: 2.5rem;
+          }
+
+          .nav-links {
+            gap: 1rem;
+          }
+        }
